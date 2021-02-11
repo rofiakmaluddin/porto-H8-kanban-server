@@ -38,6 +38,18 @@ class TaskController {
         next(err)
       })
   }
+  static getById(req,res,next){
+    const id = +req.params.id
+    Task
+      .findOne({where:{id}, include: User})
+      .then(task => {
+        res.status(200).json(task)
+      })
+      .catch(err => {
+        console.log(err);
+        next(err)
+      })
+  }
   static editData(req,res,next){
     const {title,description} = req.body
     const id = +req.params.id

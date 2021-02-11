@@ -23,7 +23,7 @@ class UserController {
       .then(user => {
         if (!user) throw {name: 'login error', msg: 'Invalid email or password', status: 400}
         const comparedPass = comparePass(password,user.password)
-        if (!comparePass) throw {name: 'login error', msg: 'Invalid email or password', status: 400}
+        if (!comparedPass) throw {name: 'login error', msg: 'Invalid email or password', status: 400}
         const access_token = createAccessToken({
           id: user.id,
           email: user.email
