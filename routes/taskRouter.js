@@ -4,14 +4,14 @@ const authorize = require("../middlewares/authorize")
 const router = require("express").Router()
 
 router.use(authenticate)
-router.get('/', TaskController.getAllData)
-router.post('/', TaskController.addData)
+router.get('/', TaskController.getAllData)//
+router.post('/', TaskController.addData)//
 router.get('/userData', TaskController.getMyData)
 
 router.use('/:id',authorize)
-router.get('/:id', TaskController.getById)
-router.put('/:id', TaskController.editData)
-router.patch('/:id', TaskController.changeCategory)
-router.delete('/:id', TaskController.destroy)
+router.get('/:id', TaskController.getById)//
+router.put('/:id', TaskController.editData)//
+router.patch('/:id', TaskController.changeCategory)//
+router.delete('/:id', TaskController.destroy)//
 
 module.exports = router

@@ -15,7 +15,6 @@ class TaskController {
   static addData(req,res,next){
     const {title,description,category} = req.body
     const UserId = req.user
-
     Task
       .create({title,description,category,UserId})
       .then(task => {
